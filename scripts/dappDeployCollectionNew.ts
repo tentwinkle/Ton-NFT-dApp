@@ -17,7 +17,7 @@ export async function run(provider: NetworkProvider, args: string[]) {
       nextItemIndex: 0, 
       collectionContent: '',
       commonContent: '',
-      nftItemCode: await compile('AdminNft'),
+      nftItemCode: await compile('OrderNft'),
       royaltyParams: {
         royaltyFactor: 12,
         royaltyBase: 100,
@@ -26,9 +26,9 @@ export async function run(provider: NetworkProvider, args: string[]) {
   });
 
     await nftDapp.sendDeployCollectionMsg(provider.sender(), {
-        collectionCode: await compile('AdminCollection'),
+        collectionCode: await compile('OrderCollection'),
         collectionData: collectionDataCell,
-        queryId: Date.now(),
+        queryId: 0,
     });
 
     sleep(3500);
